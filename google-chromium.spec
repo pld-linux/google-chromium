@@ -1,7 +1,7 @@
 #
 # NOTE:
 # Debug build - bp: ~1,8 GB bc: ~4,1 GB
-# to update sources just run in : gclient update --force 
+# to update sources just run in: gclient update --force
 #
 # TODO:
 # - use shared libs to build
