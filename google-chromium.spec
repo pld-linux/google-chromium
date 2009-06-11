@@ -4,19 +4,9 @@
 # to update sources just run in: gclient update --force
 #
 # TODO:
-# - + tar -xf /home/users/uzsolt/rpm/packages/google-chromium/chromium-r17844.tar.lzma
-#	lzma: (stdin): File format not recognized
-#	tar: Child returned status 1
-#	tar: Exiting with failure status due to previous errors
-#	error: Bad exit status from /home/users/uzsolt/tmp/rpm-tmp.43870 (%prep)
-#
-#	chromium-r17844.tar.lzma: data
 # - use shared libs to build
 # - does not build on x86_64 ??
-#
-
 %define		rev	r17844
-
 Summary:	Google browser
 Summary(pl.UTF-8):	przegladarka Google
 Name:		google-chromium
@@ -30,6 +20,7 @@ Source0:	chromium-%{rev}.tar.lzma
 URL:		http://chromium.org/
 BuildRequires:	GConf2-devel
 BuildRequires:	gperf
+BuildRequires:	lzma
 BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpmbuild(macros) >= 1.356
 Requires:	browser-plugins >= 2.0
@@ -45,12 +36,12 @@ Google Chromium.
 Google Chromium.
 
 %prep
-%setup -q -T -b 0 -n %{name}
+%setup -q -c -T
+lzma -dc %{SOURCE0} | tar xf - -C ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir},%{_sysconfdir}}
-
 
 #sh install.sh \
 #	DESTDIR=$RPM_BUILD_ROOT \
