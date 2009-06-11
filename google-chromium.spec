@@ -4,6 +4,13 @@
 # to update sources just run in: gclient update --force
 #
 # TODO:
+# - + tar -xf /home/users/uzsolt/rpm/packages/google-chromium/chromium-r17844.tar.lzma
+#	lzma: (stdin): File format not recognized
+#	tar: Child returned status 1
+#	tar: Exiting with failure status due to previous errors
+#	error: Bad exit status from /home/users/uzsolt/tmp/rpm-tmp.43870 (%prep)
+#
+#	chromium-r17844.tar.lzma: data
 # - use shared libs to build
 # - does not build on x86_64 ??
 #
