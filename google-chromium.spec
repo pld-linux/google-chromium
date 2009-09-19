@@ -4,6 +4,7 @@
 # to update sources just run in: gclient update --force
 #
 # TODO:
+# - merge google-chromium.spec vs chromium-browser.spec -- one must go
 # - use shared libs to build
 # - does not build on x86_64 ??
 %define		rev	r17844
@@ -37,7 +38,7 @@ Google Chromium.
 
 %prep
 %setup -q -c -T
-lzma -dc %{SOURCE0} | tar xf - -C ..
+%{__lzma} -dc %{SOURCE0} | tar xf - -C ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
